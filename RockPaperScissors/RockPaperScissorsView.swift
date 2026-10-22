@@ -38,7 +38,7 @@ struct RockPaperScissorsView: View {
     @State var computerEmoji: String = "❓"
 
     // What happened in the last round.
-    @State var result: String = "Let's play!"
+    @State var result: String = "Let's Play Rock, Paper, Scissors! Can you beat the computer?"
 
     // How many rounds have been played.
     @State var roundsPlayed: Int = 0
@@ -98,7 +98,7 @@ struct RockPaperScissorsView: View {
 
             // One button for each move the player can make.
             // The code inside the braces runs when that button is clicked.
-            Text("Choose your move")
+            Text("Play your move: Rock Paper or Scissors")
                 .font(.headline)
                 .foregroundStyle(Color.secondary)
 
@@ -139,7 +139,7 @@ struct RockPaperScissorsView: View {
             .buttonStyle(.bordered)
             .font(.headline)
             // TRY: Change teal to another colour. Change it in the title and the moves box too.
-            .tint(Color.teal)
+            .tint(Color.blue)
 
             Text("Rounds played: \(roundsPlayed)")
                 .font(.headline)
@@ -200,13 +200,18 @@ struct RockPaperScissorsView: View {
         if playerMove == computerMove {
             // TRY: Change what the game says when there is a tie.
             result = "It's a tie!"
-        } else {
             // This is where the game needs your help.
             // Who won: you, or the computer?
+            if playerMove == scissorsEmoji && computerMove == paperEmoji
+                }
+            
             result = "Someone won"
-        }
+        
+        
     }
 }
+
+
 
 #Preview {
     RockPaperScissorsView()
