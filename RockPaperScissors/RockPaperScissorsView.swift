@@ -215,6 +215,6 @@ struct RockPaperScissorsView: View {
         
         
         
+        
         #Preview{
             RockPaperScissorsView()}
-    }
