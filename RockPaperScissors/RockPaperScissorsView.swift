@@ -196,23 +196,25 @@ struct RockPaperScissorsView: View {
     func playRound() {
         chooseComputerMove()
         roundsPlayed += 1
-
+        
         if playerMove == computerMove {
-            // TRY: Change what the game says when there is a tie.
-            result = "It's a tie!"
-            // This is where the game needs your help.
-            // Who won: you, or the computer?
-            if playerMove == scissorsEmoji && computerMove == paperEmoji
-                }
-            
-            result = "Someone won"
+            result = "It's a tie!"}
+        else if playerMove == rockEmoji && computerMove == paperEmoji{
+            result = "You lost, paper covers rock!!"}
+        else if playerMove == rockEmoji && computerMove == scissorsEmoji{
+            result = "You win, rock breaks scissors!"}
+        else if playerMove == paperEmoji && computerMove == rockEmoji {
+            result = "You win, paper covers rock!"}
+        else if playerMove == paperEmoji && computerMove == scissorsEmoji {
+            result = "You lost, scissors cuts paper!"}
+        else if playerMove == scissorsEmoji && computerMove == paperEmoji {
+            result = "You won, scissors cuts paper!"}
+        else if playerMove == scissorsEmoji && playerMove == rockEmoji {
+            result = "You lost, rock breaks scissors!"}
         
         
+        
+        
+        #Preview{
+            RockPaperScissorsView()}
     }
-}
-
-
-
-#Preview {
-    RockPaperScissorsView()
-}
