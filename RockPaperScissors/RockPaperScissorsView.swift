@@ -195,7 +195,7 @@ struct RockPaperScissorsView: View {
     // Plays one round, once the player has picked a move.
     func playRound() {
         chooseComputerMove()
-        roundsPlayed += 1
+        roundsPlayed += 1}
         
         if playerMove == computerMove {
             result = "It's a tie!"}
@@ -217,4 +217,5 @@ struct RockPaperScissorsView: View {
         
         
         #Preview{
-            RockPaperScissorsView()}
+            RockPaperScissorsView()
+        }
