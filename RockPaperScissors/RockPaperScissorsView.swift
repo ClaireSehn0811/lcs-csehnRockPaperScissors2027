@@ -11,7 +11,7 @@
 //  When the two moves are different, it only says "Someone won".
 //  It does not know who!
 //  Rock beats scissors, scissors beats paper, and paper beats rock.
-//
+// For MAKE IT YOURS, the game now holds a winning streak for the player, and it says if the player has won or lost.
 
 import SwiftUI
 
@@ -24,41 +24,44 @@ let scissorsEmoji: String = "✂️"
 // The game itself: what it remembers, what it shows on the screen,
 // and what it does when you click a button.
 struct RockPaperScissorsView: View {
-
+    
     // MARK: - Stored properties
-
+    
     // Each @State variable is something the game remembers.
     // When one of them changes, the screen updates by itself.
-
+    
     // The name of each move, such as "Rock", and the emoji that shows it.
     // Before the first round, nobody has picked a move yet.
     @State var playerMove: String = "No move yet"
     @State var playerEmoji: String = "❓"
     @State var computerMove: String = "No move yet"
     @State var computerEmoji: String = "❓"
-
+    
     // What happened in the last round.
     @State var result: String = "Let's Play Rock, Paper, Scissors! Can you beat the computer?"
-
+    
     // How many rounds have been played.
     @State var roundsPlayed: Int = 0
-
+    
+    // Winnning streak for the player
+    @State private var currentWinStreak: Int = 0
+    
     // MARK: - Computed properties
-
+    
     var body: some View {
         VStack(spacing: 24) {
-
+            
             // The title at the top of the screen.
             Text("Rock Paper Scissors")
                 .font(.largeTitle)
                 .bold()
                 .foregroundStyle(Color.teal)
-                // Shrink the title a little if it does not fit on one line.
+            // Shrink the title a little if it does not fit on one line.
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
-
+            
             Spacer()
-
+            
             // The two moves, side by side.
             HStack {
                 VStack(spacing: 8) {
@@ -70,11 +73,11 @@ struct RockPaperScissorsView: View {
                         .font(.title3)
                 }
                 .frame(maxWidth: .infinity)
-
+                
                 Text("vs")
                     .font(.title)
                     .foregroundStyle(Color.secondary)
-
+                
                 VStack(spacing: 8) {
                     Label("Computer", systemImage: "desktopcomputer")
                         .font(.headline)
@@ -88,20 +91,25 @@ struct RockPaperScissorsView: View {
             .padding(.vertical)
             .background(Color.teal.opacity(0.15))
             .clipShape(RoundedRectangle(cornerRadius: 24))
-
+            
+            Text("Win Streak: \(currentWinStreak)")
+                .font(.headline)
+                .foregroundStyle(Color.teal)
+                .font(.system(size: 90))
+            
             // The result of the round.
             Text(result)
                 .font(.largeTitle)
                 .bold()
-
+            
             Spacer()
-
+            
             // One button for each move the player can make.
             // The code inside the braces runs when that button is clicked.
             Text("Play your move: Rock Paper or Scissors")
                 .font(.headline)
                 .foregroundStyle(Color.secondary)
-
+            
             HStack(spacing: 12) {
                 Button {
                     chooseRock()
@@ -113,7 +121,7 @@ struct RockPaperScissorsView: View {
                     }
                     .frame(maxWidth: .infinity)
                 }
-
+                
                 Button {
                     choosePaper()
                 } label: {
@@ -124,7 +132,7 @@ struct RockPaperScissorsView: View {
                     }
                     .frame(maxWidth: .infinity)
                 }
-
+                
                 Button {
                     chooseScissors()
                 } label: {
@@ -140,7 +148,7 @@ struct RockPaperScissorsView: View {
             .font(.headline)
             // TRY: Change teal to another colour. Change it in the title and the moves box too.
             .tint(Color.blue)
-
+            
             Text("Rounds played: \(roundsPlayed)")
                 .font(.headline)
                 .foregroundStyle(Color.secondary)
@@ -149,71 +157,86 @@ struct RockPaperScissorsView: View {
         .fontDesign(.rounded)
         // How big the game's window is on the Mac. It can be made taller or wider.
         .frame(minWidth: 520, minHeight: 640)
+    
+        
     }
-
+    
     // MARK: - Functions
-
+    
     // The player picked rock.
     func chooseRock() {
         playerMove = "Rock"
         playerEmoji = rockEmoji
         playRound()
     }
-
+    
     // The player picked paper.
     func choosePaper() {
         playerMove = "Paper"
         playerEmoji = paperEmoji
         playRound()
     }
-
+    
     // The player picked scissors.
     func chooseScissors() {
         playerMove = "Scissors"
         playerEmoji = scissorsEmoji
         playRound()
     }
-
+    
     // The computer picks its move at random.
     func chooseComputerMove() {
-
+        
         // Pick 1, 2 or 3. Each number stands for one move.
         let randomNumber: Int = Int.random(in: 1...3)
 
+        
         if randomNumber == 1 {
             computerMove = "Rock"
             computerEmoji = rockEmoji
         } else if randomNumber == 2 {
             computerMove = "Paper"
             computerEmoji = paperEmoji
-        } else {
+        } else if randomNumber == 3 {
             computerMove = "Scissors"
             computerEmoji = scissorsEmoji
         }
     }
-
+    
     // Plays one round, once the player has picked a move.
     func playRound() {
         chooseComputerMove()
-        roundsPlayed += 1}
-        
+        roundsPlayed += 1
+        winner ()
+    }
+    
+    
+    func winner () {
         if playerMove == computerMove {
-            result = "It's a tie!"}
-        else if playerMove == rockEmoji && computerMove == paperEmoji{
-            result = "You lost, paper covers rock!!"}
-        else if playerMove == rockEmoji && computerMove == scissorsEmoji{
-            result = "You win, rock breaks scissors!"}
-        else if playerMove == paperEmoji && computerMove == rockEmoji {
-            result = "You win, paper covers rock!"}
-        else if playerMove == paperEmoji && computerMove == scissorsEmoji {
-            result = "You lost, scissors cuts paper!"}
-        else if playerMove == scissorsEmoji && computerMove == paperEmoji {
-            result = "You won, scissors cuts paper!"}
-        else if playerMove == scissorsEmoji && playerMove == rockEmoji {
-            result = "You lost, rock breaks scissors!"}
+            result = "It's a tie!"
+        } else if playerMove == "Rock" && computerMove == "Paper" {
+            result = "You lost, paper covers rock!"
+            currentWinStreak = 0
+        } else if playerMove == "Rock" && computerMove == "Scissors" {
+            result = "You win, rock breaks scissors!"
+            currentWinStreak += 1
+        } else if playerMove == "Paper" && computerMove == "Rock" {
+            result = "You win, paper covers rock!"
+            currentWinStreak += 1
+        } else if playerMove == "Paper" && computerMove == "Scissors" {
+            result = "You lost, scissors cuts paper!"
+            currentWinStreak = 0
+        } else if playerMove == "Scissors" && computerMove == "Paper" {
+            result = "You win, scissors cuts paper!"
+            currentWinStreak += 1
+        } else if playerMove == "Scissors" && computerMove == "Rock" {
+            result = "You lost, rock breaks scissors!"
+            currentWinStreak = 0
+        }
         
-        
-        
+    }
+    
+}
         
         
         #Preview{
