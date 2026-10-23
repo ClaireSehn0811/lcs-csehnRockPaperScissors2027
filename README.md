@@ -11,7 +11,11 @@ You against the computer. Click a move, and the computer picks one at random.
 ## What I added
  
 - Nothing yet. This list grows as I work on Make It Yours.
+## Testing
 
+|  Test | Chosen Input |  Should Happen | Did Happen |
+| --- | --- | --- | --- |
+| When I win multiple times in a row I should gain a win streak. |  |  |T|
  
 ## Credits
  
