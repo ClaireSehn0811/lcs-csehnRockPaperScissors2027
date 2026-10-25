@@ -94,11 +94,13 @@ struct RockPaperScissorsView: View {
             .padding(.vertical)
             .background(Color.teal.opacity(0.15))
             .clipShape(RoundedRectangle(cornerRadius: 24))
-            
+         
+// Colour, font, and size of Win Streak Text
             Text("Win Streak: \(currentWinStreak)")
                 .font(.headline)
                 .foregroundStyle(Color.teal)
                 .font(.system(size: 90))
+            
             
             // The result of the round.
             Text(result)
@@ -106,11 +108,15 @@ struct RockPaperScissorsView: View {
                 .bold()
             
             Spacer()
+            
+            
+
        
 // Creates hard mode and easy mode, player can select their preferance.
             Button("Easy Mode") {
                 isHardMode = false
                 easyModeStep = 0
+                
             }
 
             Button("Hard Mode") {

@@ -10,15 +10,16 @@ You against the computer. Click a move, and the computer picks one at random.
  
 ## What I added
  
-- Nothing yet. This list grows as I work on Make It Yours.
+- The game now tells the player when they have won or lost. 
+- The game shows the player's "Win streak", for how many times they have won. 
+- The game has an "Easy Mode" and "Hard Mode" options so they player can customize the difficulty when playing.
 ## Testing
 
-|  Test | Chosen Input |  Should Happen | Did Happen |
-| --- | --- | --- | --- |
-| When I win multiple times in a row I should gain a win streak. |  |  |T|
+
  
 ## Credits
  
 - The starting game was written by Mr. Gordon.
+- To create the game, Gemini AI was used. This platform helped me add the win streak and levels of difficulty to the game.
 
 
