@@ -15,8 +15,11 @@ You against the computer. Click a move, and the computer picks one at random.
 - The game has an "Easy Mode" and "Hard Mode" options so they player can customize the difficulty when playing.
 - The colour of the result text changes depending on result. When player wins, text is green. When player looses, text is red. Whem it is a tie, text is grey. 
 ## Testing
-
-
+| Test | Chosen Input | What should happen | Did happen |
+| --- | --- | --- | --- |
+|  Computer always plays rock  |  Computer fixed at 1, I chose paper. | The result says who one won: "You win, paper covers rock!" |  I won. \*Note. I completed this in class on Friday, October 23 but did not commit it, hence why the change does not appear under the repositories. |
+|  |  |  |  |
+|  |  |  |  |
  
 ## Credits
  

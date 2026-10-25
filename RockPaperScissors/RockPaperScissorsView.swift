@@ -106,13 +106,13 @@ struct RockPaperScissorsView: View {
             .background(Color.teal.opacity(0.15))
             .clipShape(RoundedRectangle(cornerRadius: 24))
          
-            // Colour, font, and size of Win Streak Text
+// Colour, font, and size of Win Streak Text
             Text("Win Streak: \(currentWinStreak)")
                 .font(.headline)
                 .foregroundStyle(Color.teal)
                 .font(.system(size: 90))
             
-            
+        
             // The result of the round.
             Text(result)
                 .font(.largeTitle)
