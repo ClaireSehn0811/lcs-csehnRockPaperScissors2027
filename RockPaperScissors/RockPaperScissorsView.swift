@@ -45,9 +45,20 @@ struct RockPaperScissorsView: View {
     
     // Winnning streak for the player
     @State private var currentWinStreak: Int = 0
-    
+  
+    //Hard Mode and Easy Mode
     @State var isHardMode: Bool = true
     @State var easyModeStep: Int = 0
+    
+    var resultColor: Color {
+        if result.contains("win") || result.contains("won") {
+            return Color.green
+        } else if result.contains("lost") {
+            return Color.red
+        } else {
+            return Color.gray
+        }
+    }
     
     // MARK: - Computed properties
     
@@ -95,7 +106,7 @@ struct RockPaperScissorsView: View {
             .background(Color.teal.opacity(0.15))
             .clipShape(RoundedRectangle(cornerRadius: 24))
          
-// Colour, font, and size of Win Streak Text
+            // Colour, font, and size of Win Streak Text
             Text("Win Streak: \(currentWinStreak)")
                 .font(.headline)
                 .foregroundStyle(Color.teal)
@@ -106,11 +117,10 @@ struct RockPaperScissorsView: View {
             Text(result)
                 .font(.largeTitle)
                 .bold()
+                .foregroundStyle(resultColor)
             
             Spacer()
             
-            
-
        
 // Creates hard mode and easy mode, player can select their preferance.
             Button("Easy Mode") {
