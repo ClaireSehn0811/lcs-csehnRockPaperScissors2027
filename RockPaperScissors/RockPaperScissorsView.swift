@@ -46,6 +46,9 @@ struct RockPaperScissorsView: View {
     // Winnning streak for the player
     @State private var currentWinStreak: Int = 0
     
+    @State var isHardMode: Bool = true
+    @State var easyModeStep: Int = 0
+    
     // MARK: - Computed properties
     
     var body: some View {
@@ -103,6 +106,16 @@ struct RockPaperScissorsView: View {
                 .bold()
             
             Spacer()
+       
+// Creates hard mode and easy mode, player can select their preferance.
+            Button("Easy Mode") {
+                isHardMode = false
+                easyModeStep = 0
+            }
+
+            Button("Hard Mode") {
+                isHardMode = true
+            }
             
             // One button for each move the player can make.
             // The code inside the braces runs when that button is clicked.
@@ -184,25 +197,38 @@ struct RockPaperScissorsView: View {
         playRound()
     }
     
-    // The computer picks its move at random.
-    func chooseComputerMove() {
-        
-        // Pick 1, 2 or 3. Each number stands for one move.
-        let randomNumber: Int = Int.random(in: 1...3)
-
-        
-        if randomNumber == 1 {
-            computerMove = "Rock"
-            computerEmoji = rockEmoji
-        } else if randomNumber == 2 {
-            computerMove = "Paper"
-            computerEmoji = paperEmoji
-        } else if randomNumber == 3 {
-            computerMove = "Scissors"
-            computerEmoji = scissorsEmoji
+    // The computer picks its move based on difficulty mode.
+        func chooseComputerMove() {
+            if isHardMode == true {
+                let randomNumber: Int = Int.random(in: 1...3)
+                
+                if randomNumber == 1 {
+                    computerMove = "Rock"
+                    computerEmoji = rockEmoji
+                } else if randomNumber == 2 {
+                    computerMove = "Paper"
+                    computerEmoji = paperEmoji
+                } else if randomNumber == 3 {
+                    computerMove = "Scissors"
+                    computerEmoji = scissorsEmoji
+                }
+            } else {
+                if easyModeStep == 0 {
+                    computerMove = "Rock"
+                    computerEmoji = rockEmoji
+                } else if easyModeStep == 1 {
+                    computerMove = "Paper"
+                    computerEmoji = paperEmoji
+                } else if easyModeStep == 2 {
+                    computerMove = "Scissors"
+                    computerEmoji = scissorsEmoji
+                }
+                
+                easyModeStep = (easyModeStep + 1) % 3
+            }
         }
-    }
     
+
     // Plays one round, once the player has picked a move.
     func playRound() {
         chooseComputerMove()
@@ -211,6 +237,7 @@ struct RockPaperScissorsView: View {
     }
     
     
+  // How winner is decided, impacts the player's winning streak
     func winner () {
         if playerMove == computerMove {
             result = "It's a tie!"
