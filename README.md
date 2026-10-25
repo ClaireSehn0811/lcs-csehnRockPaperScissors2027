@@ -23,10 +23,26 @@ You against the computer. Click a move, and the computer picks one at random.
 **Chosen input:** Continuos sequence of computer playing rock, then paper, then scissors 
 **What should happen:** After playing paper, scissors, rock I should win everytime. 
 **What did happen: **I won everytime I selected paper, scissors, rock in that order. Win streak increased.
+
 **Test:** Hard Mode
 **Chosen input:** Clicked hard mode then rock
 **What should happen: **Computer generates a random move (1..3) 
 **What did happen: **Random computermove was played, result was not consistent allowing for win streak to change. 
+
+**Test:** Win text result colour
+**Chosen input: **Selected easy mode, player chooses paper, computer chooses rock. 
+**What should happen:** Result text becomes green. 
+**What did happen:** Result text became green. 
+
+**Test:** Loose text result colour
+**Chosen input: **Selected easy mode, player chooses scissors, computer chooses rock. 
+**What should happen:** Player looses, result text becomes red. 
+**What did happen: **Play lost, result text became red. 
+
+**Test:** Tie text result colour
+**Chosen input****: **Selected easy mode, player chooses rock, computer chooses rock. 
+**What should happen: **Tie, result text becomes grey.
+**What did happen:** Tie, result text became grey. 
 ## Credits
  
 - The starting game was written by Mr. Gordon.
