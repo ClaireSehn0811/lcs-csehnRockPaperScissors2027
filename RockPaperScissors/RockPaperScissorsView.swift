@@ -44,14 +44,14 @@ struct RockPaperScissorsView: View {
     @State var roundsPlayed: Int = 0
     
     // Winnning streak for the player
-    @State private var currentWinStreak: Int = 0
+    @State var currentWinStreak: Int = 0
     
     //Hard Mode and Easy Mode
     @State var isHardMode: Bool = true
     @State var easyModeStep: Int = 0
     
     var resultColor: Color {
-        if result.contains("win") || result.contains("won") {
+        if result.contains("win") {
             return Color.green
         } else if result.contains("lost") {
             return Color.red
@@ -212,7 +212,7 @@ struct RockPaperScissorsView: View {
         playerEmoji = scissorsEmoji
         playRound()
     }
- 
+
         // The computer picks its move based on difficulty mode.
             func chooseComputerMove() {
                 if isHardMode == true {
