@@ -212,21 +212,37 @@ struct RockPaperScissorsView: View {
         playerEmoji = scissorsEmoji
         playRound()
     }
-    
-    // The computer picks its move based on difficulty mode.
-    func chooseComputerMove() {
-        let randomNumber: Int = 1
-        if randomNumber == 1 {
-            computerMove = "Rock"
-            computerEmoji = rockEmoji
-        } else if randomNumber == 2 {
-            computerMove = "Paper"
-            computerEmoji = paperEmoji
-        } else if randomNumber == 3 {
-            computerMove = "Scissors"
-            computerEmoji = scissorsEmoji
-        }
-    }
+
+        // The computer picks its move based on difficulty mode.
+            func chooseComputerMove() {
+                if isHardMode == true {
+                    let randomNumber: Int = Int.random(in: 1...3)
+                    
+                    if randomNumber == 1 {
+                        computerMove = "Rock"
+                        computerEmoji = rockEmoji
+                    } else if randomNumber == 2 {
+                        computerMove = "Paper"
+                        computerEmoji = paperEmoji
+                    } else if randomNumber == 3 {
+                        computerMove = "Scissors"
+                        computerEmoji = scissorsEmoji
+                    }
+                } else {
+                    if easyModeStep == 0 {
+                        computerMove = "Rock"
+                        computerEmoji = rockEmoji
+                    } else if easyModeStep == 1 {
+                        computerMove = "Paper"
+                        computerEmoji = paperEmoji
+                    } else if easyModeStep == 2 {
+                        computerMove = "Scissors"
+                        computerEmoji = scissorsEmoji
+                    }
+                    
+                    easyModeStep = (easyModeStep + 1) % 3
+                }
+            }
     
     
     // Plays one round, once the player has picked a move.
