@@ -17,9 +17,8 @@ You against the computer. Click a move, and the computer picks one at random.
 ## Testing
 | Test | Chosen Input | What should happen | Did happen |
 | --- | --- | --- | --- |
-|  Computer always plays rock  |  Computer fixed at 1, I chose paper. | The result says who one won: "You win, paper covers rock!" |  I won. \*Note. I completed this in class on Friday, October 23 but did not commit it, hence why the change does not appear under the repositories. |
-|  |  |  |  |
-|  |  |  |  |
+|  Text change when I win |  Computer fixed at 1, I chose paper. | The result says who one won: "You win, paper covers rock!" |  I won. \*Note. I completed this in class on Friday, October 23 but did not commit it, hence why the change does not appear under the repositories. |
+| Win Streak | Computer fixed at 1, I chose paper | After playing the game multiple times, result says who one won: "You win, paper covers rock!"|  After selecting paper multiple times, the win streak increased.  |
  
 ## Credits
  
