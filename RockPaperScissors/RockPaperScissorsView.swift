@@ -212,7 +212,7 @@ struct RockPaperScissorsView: View {
         playerEmoji = scissorsEmoji
         playRound()
     }
-
+ 
         // The computer picks its move based on difficulty mode.
             func chooseComputerMove() {
                 if isHardMode == true {
