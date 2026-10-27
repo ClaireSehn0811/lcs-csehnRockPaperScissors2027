@@ -1,9 +1,8 @@
-# Rock Paper Scissors
-
-You against the computer. Click a move, and the computer picks one at random.
+# Rock Paper Scissor
+You against the computer. The computer selects its move based on your chosen difficulty level.
  
 ## How to play 
-1. Select Easy Mode or Hard Mode, depending on your perferred level of difficulty. 
+1. Select Easy Mode or Hard Mode, depending on your perferred level of difficulty. If you select easy mode, playing paper, scissors, rock in that order allows you to win everytime. 
 2. Click **Rock**, **Paper**, or **Scissors**.
 3. The computer shows its move beside yours.
 4. Rock beats scissors, scissors beats paper, and paper beats rock.
@@ -39,8 +38,8 @@ A Bool was chosen over a String for selection of hard mode because it only has t
 
 **Result Text Colour**
 *If: *Indicates if the following statement is true or false. 
-*Result.contains*: Explains what the result statement must contain for the statement to be true. This is the parameter
-*("")*: What must be in the result for this part of the code to work. This is the argument 
+*Result.contains*: Explains what the result statement must contain for the statement to be true. This is the parameter.
+*("")*: What must be in the result for this part of the code to work. This is the argument.
 *return colour.\_\_\_*: Explains what colour the result text will become if the statement is true. 
 The parameter in this line of code is "contains" as it is asking what the line of code must contain. The "win" or "lost" inside the bracket is the arugment as it is what is being changed.
  

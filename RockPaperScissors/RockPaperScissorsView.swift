@@ -177,7 +177,7 @@ struct RockPaperScissorsView: View {
             }
             .buttonStyle(.bordered)
             .font(.headline)
-            // TRY: Change teal to another colour. Change it in the title and the moves box too.
+            //Colour and style of Rounds Played
             .tint(Color.blue)
             
             Text("Rounds played: \(roundsPlayed)")
