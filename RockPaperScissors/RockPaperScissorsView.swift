@@ -49,7 +49,9 @@ struct RockPaperScissorsView: View {
     //Hard Mode and Easy Mode
     @State var isHardMode: Bool = true
     @State var easyModeStep: Int = 0
+   
     
+    // Colour of result text
     var resultColor: Color {
         if result.contains("win") {
             return Color.green
