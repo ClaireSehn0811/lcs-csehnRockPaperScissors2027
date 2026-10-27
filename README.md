@@ -1,5 +1,5 @@
 # Rock Paper Scissor
-In this game you are playing against the computer. The computer selects its move based on your chosen difficulty level.
+In this game you are playing against the computer. The computer selects its move based on your chosen difficulty level. Your win streak will be impacted by the result of each round and you will see the result, if it was a win, loss, or tie. 
  
 ## How to play 
 1. Select Easy Mode or Hard Mode, depending on your perferred level of difficulty. If you select easy mode, playing paper, scissors, rock in that order allows you to win everytime. 
