@@ -44,7 +44,8 @@ struct RockPaperScissorsView: View {
     //Hard Mode and Easy Mode
     @State var isHardMode: Bool = true
     @State var easyModeStep: Int = 0
-   
+    
+    // MARK: - Computed properties
     
     // Colour of result text
     var resultColor: Color {
@@ -56,8 +57,6 @@ struct RockPaperScissorsView: View {
             return Color.gray
         }
     }
-    
-    // MARK: - Computed properties
     
     var body: some View {
         VStack(spacing: 24) {
