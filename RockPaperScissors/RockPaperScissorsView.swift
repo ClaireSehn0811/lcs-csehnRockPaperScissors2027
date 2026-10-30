@@ -279,9 +279,6 @@ struct RockPaperScissorsView: View {
             currentWinStreak = 0
         }
         
-        
-        
-        
         #Preview{
             RockPaperScissorsView()
         }
