@@ -6,12 +6,7 @@
 //  You pick rock, paper or scissors. The computer picks one at random.
 //  The app shows both moves and counts how many rounds you have played.
 //  It can tell when a round is a tie.
-//
-//  WHAT IT DOES NOT DO YET
-//  When the two moves are different, it only says "Someone won".
-//  It does not know who!
-//  Rock beats scissors, scissors beats paper, and paper beats rock.
-// For MAKE IT YOURS, the game now holds a winning streak for the player, and it says if the player has won or lost.
+// For MAKE IT YOURS, the game now holds a winning streak for the player, and it says if the player has won or lost and why, the result text changes colour depending on result, and an easy and hard mode have been added for customized difficulty.
 
 import SwiftUI
 
