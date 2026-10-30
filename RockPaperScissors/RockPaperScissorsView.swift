@@ -106,7 +106,6 @@ struct RockPaperScissorsView: View {
             Text("Win Streak: \(currentWinStreak)")
                 .font(.headline)
                 .foregroundStyle(Color.teal)
-                .font(.system(size: 90))
             
             
             // The result of the round.
